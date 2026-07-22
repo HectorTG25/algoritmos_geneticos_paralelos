@@ -246,22 +246,3 @@ src/
   parallel_runner.py        Modo maestro-esclavo (Pool + memoria compartida)
   gui_app.py                Interfaz gráfica (Tkinter + Matplotlib)
 ```
-
-## 8. Ideas para el informe / conclusiones
-
-- Medir el Speedup variando `N`, `P` y número de esclavos; graficar
-  Speedup vs. número de esclavos para distintos tamaños de problema.
-- Identificar el punto de equilibrio (`N`, `P`) a partir del cual el modo
-  Maestro-Esclavo empieza a superar al Secuencial, y relacionarlo con la
-  Ley de Amdahl (el overhead de crear/comunicar procesos es la fracción
-  no paralelizable).
-- Discutir por qué la matriz de distancias se comparte por memoria y no
-  se reenvía cada generación, y qué pasaría con el rendimiento si se
-  reenviara completa en cada `pool.map`.
-- Comparar el Speedup del método **Vectorizado** vs **Manual** con los
-  mismos `N`/`P`/Esclavos, y explicar por qué NumPy (que ya vectoriza a
-  bajo nivel) reduce el margen de mejora del paralelismo a nivel de
-  proceso, mientras que un cómputo "pesado" por individuo lo hace mucho
-  más evidente — es una demostración directa de que el paralelismo ayuda
-  en proporción a cuánto trabajo real hay para repartir frente al
-  overhead de coordinarlo.
